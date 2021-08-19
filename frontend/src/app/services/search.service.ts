@@ -91,13 +91,13 @@ export class SearchService {
       }
 
       if (!(term === null || term === '')) {
-        escape(term).replace(/\s+/g, ' ');
+        term=escape(term).replace(/\s+/g, ' ');
         const term1=term.split(" ");
         const termregex=[];
         for(let i=0;i<term.length;i++){
          termregex[i] = new RegExp(escape(term1[i]).replace(/\s+/g, ' '), 'i');
         }
-        let flag=false;
+        let flag=true;
         for(let i=0;i<term.length;i++){
           flag =flag && termregex[i].test(elem.n.replace(/\s+/g, ' '));
          }
